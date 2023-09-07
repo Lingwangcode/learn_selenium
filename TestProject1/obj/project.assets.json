@@ -1663,11 +1663,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lings\\source\\repos\\TestProject1\\TestProject1.csproj",
+      "projectUniqueName": "C:\\Users\\lings\\learn_selenium\\TestProject1\\TestProject1.csproj",
       "projectName": "TestProject1",
-      "projectPath": "C:\\Users\\lings\\source\\repos\\TestProject1\\TestProject1.csproj",
+      "projectPath": "C:\\Users\\lings\\learn_selenium\\TestProject1\\TestProject1.csproj",
       "packagesPath": "C:\\Users\\lings\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lings\\source\\repos\\TestProject1\\obj\\",
+      "outputPath": "C:\\Users\\lings\\learn_selenium\\TestProject1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

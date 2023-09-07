@@ -41,10 +41,11 @@ namespace TestProject1
                 }
                 
             }
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            //wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("okayBtn")));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("okayBtn")));
             driver.FindElement(By.Id("okayBtn")).Click();
-            //Boolean result = driver.FindElement(By.Id("usertype")).Selected;
+            Boolean result = driver.FindElement(By.Id("usertype")).Selected;
+            //for true or false use assert.that   *Not working here because of some issues in the webpage
             //Assert.That(result, Is.True);
         }
     }
