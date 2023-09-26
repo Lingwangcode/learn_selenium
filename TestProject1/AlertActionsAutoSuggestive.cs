@@ -38,6 +38,15 @@ namespace TestProject1
         {
             driver.FindElement(By.Id("autocomplete")).SendKeys("ind");
             IList<IWebElement> options = driver.FindElements(By.ClassName("ui-menu-item"));
+            foreach(IWebElement option in options)
+            {
+                if (option.Text.Equals("India"))
+                {
+                    option.Click();
+                }
+            }
+            //get the text that is typed in the runtime
+            TestContext.Progress.WriteLine(driver.FindElement(By.Id("autocomplete")).GetAttribute("value"));
 
         }
     }
