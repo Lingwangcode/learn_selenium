@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using WebDriverManager.DriverConfigs.Impl;
 using OpenQA.Selenium.Support.UI;
 using System.Collections;
+using System.Reflection.Emit;
 
 namespace TestProject1
 {
@@ -29,25 +30,40 @@ namespace TestProject1
             SelectElement dropDown = new SelectElement(driver.FindElement(By.Id("page-menu")));
             dropDown.SelectByValue("20");
 
+            //Get all vegatable names into arraylist
             IList<IWebElement> vegetableElements = driver.FindElements(By.XPath("//tr//td[1]"));
-            ArrayList vegetaleNames = new ArrayList();
+            ArrayList vegetableNames = new ArrayList();
             foreach (IWebElement vegetable in vegetableElements)
             {
-                vegetaleNames.Add(vegetable.Text);
+                vegetableNames.Add(vegetable.Text);
             }
-            foreach (String vegetableName in vegetaleNames)
+            //print out the vegetabel names in array
+            foreach (String vegetableName in vegetableNames)
+            {
+                TestContext.Progress.WriteLine(vegetableName);
+            }
+            //sort vagetale array
+            vegetableNames.Sort();
+            TestContext.Progress.WriteLine("after sorting");
+            foreach (String vegetableName in vegetableNames) 
             {
                 TestContext.Progress.WriteLine(vegetableName);
             }
 
-            vegetaleNames.Sort();
-            TestContext.Progress.WriteLine("after sorting");
-            foreach (String vegetableName in vegetaleNames) 
-            {
-                TestContext.Progress.WriteLine(vegetableName);
-            }
-            driver.FindElement(By.LinkText("Veg/fruit name")).Click();
+            //click on element
+            driver.FindElement(By.CssSelector("th[aria-label*='fruit name']")).Click();
             
+            //get all sorted vegetable names into an array again
+            ArrayList sortedVegetaleNames = new ArrayList();
+
+            IList<IWebElement> sortedVegetableElements = driver.FindElements(By.XPath("//tr//td[1]"));
+            
+            foreach (IWebElement vegetable in sortedVegetableElements)
+            {
+                sortedVegetaleNames.Add(vegetable.Text);
+            }
+            //compare arrays
+            Assert.AreEqual(vegetableNames, sortedVegetaleNames);
 
 
         }
