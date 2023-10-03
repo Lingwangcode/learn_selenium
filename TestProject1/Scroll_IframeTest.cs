@@ -35,6 +35,14 @@ namespace TestProject1
             driver.SwitchTo().Frame("courses-iframe");
             driver.FindElement(By.LinkText("All Access Plan")).Click();
 
+            //get the h1 text in the frame
+            TestContext.Progress.WriteLine(driver.FindElement(By.CssSelector("h1")).Text);
+
+            //switch the driver to the parent page
+            driver.SwitchTo().DefaultContent();
+            TestContext.Progress.WriteLine(driver.FindElement(By.CssSelector("h1")).Text);
+
+
         }
     }
 }
