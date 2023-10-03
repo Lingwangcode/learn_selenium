@@ -29,7 +29,7 @@ namespace TestProject1
             driver.FindElement(By.CssSelector("input[value=Confirm]")).Click();
             String text = driver.SwitchTo().Alert().Text;
             driver.SwitchTo().Alert().Accept();
-            //driver.SwitchTo().Alert().Dismiss();
+            //driver.SwitchTo().Alert().Dismiss(); //to choose the "No" or "Cancel" option
             //driver.SwitchTo().Alert().SendKeys("Hello");
             StringAssert.Contains(name, text);
         }
