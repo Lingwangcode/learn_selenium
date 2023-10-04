@@ -26,6 +26,7 @@ namespace TestProject1
         public void EndToEnd()
         {
             String[] expectedPro = { "iphone X", "Blackberry" };
+
             driver.FindElement(By.Id("username")).SendKeys("rahulshettyacademy");
             driver.FindElement(By.Id("password")).SendKeys("learning");
             driver.FindElement(By.CssSelector(".text-info span:nth-child(1) input")).Click();
@@ -49,6 +50,19 @@ namespace TestProject1
             }
 
             driver.FindElement(By.PartialLinkText("Checkout")).Click();
+           
+            //check if the items are expected in the cart
+            IList<IWebElement> productElementListCheckOut = driver.FindElements(By.CssSelector("h4 a"));
+
+            String[] actualProducts = new string[2];
+            for(int i = 0; i < productElementListCheckOut.Count; i++)
+            {
+
+                actualProducts[i] = productElementListCheckOut[i].Text;
+            }
+            Assert.That(actualProducts, Is.EqualTo(expectedPro));
+
+            //Click the Checkout button
 
         }
     }

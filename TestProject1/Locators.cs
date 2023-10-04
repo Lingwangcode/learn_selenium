@@ -34,8 +34,8 @@ namespace TestProject1
             driver.FindElement(By.Id("password")).SendKeys("hdskjfksf");
 
             //CSS selector & Xpath
-            //CSS: tagname[attribute = 'value']
 
+            //CSS: tagname[attribute = 'value']
             
             //Find element with XPath On SelectorHub 
             //driver.FindElement(By.XPath("//div[@class='form-group'][5]/label/span/input")).Click();
