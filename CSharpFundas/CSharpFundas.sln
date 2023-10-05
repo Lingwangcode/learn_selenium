@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpFundas", "CSharpFundas.csproj", "{ECA18B9D-1536-4036-8C46-3EF45D58CB00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpFundas", "CSharpFundas.csproj", "{ECA18B9D-1536-4036-8C46-3EF45D58CB00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "..\TestProject1\TestProject1.csproj", "{0E51F762-9ED9-4E6C-AC5C-A85FBD8A3B78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "..\TestProject1\TestProject1.csproj", "{0E51F762-9ED9-4E6C-AC5C-A85FBD8A3B78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpSeleniumFramework", "..\CSharpSeleniumFramework\CSharpSeleniumFramework.csproj", "{35B316AD-8002-449F-9376-3F773CC2402B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0E51F762-9ED9-4E6C-AC5C-A85FBD8A3B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E51F762-9ED9-4E6C-AC5C-A85FBD8A3B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E51F762-9ED9-4E6C-AC5C-A85FBD8A3B78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B316AD-8002-449F-9376-3F773CC2402B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B316AD-8002-449F-9376-3F773CC2402B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B316AD-8002-449F-9376-3F773CC2402B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B316AD-8002-449F-9376-3F773CC2402B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

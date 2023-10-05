@@ -22,6 +22,7 @@ namespace TestProject1
             driver.Manage().Window.Maximize();
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
         }
+
         [Test]
         public void EndToEnd()
         {
@@ -32,7 +33,7 @@ namespace TestProject1
             driver.FindElement(By.CssSelector(".text-info span:nth-child(1) input")).Click();
             driver.FindElement(By.CssSelector("input[value='Sign In']")).Click();
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             //PartialLinkText does not expect that the text is exactly the same as expected.
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.PartialLinkText("Checkout")));
 
@@ -63,6 +64,18 @@ namespace TestProject1
             Assert.That(actualProducts, Is.EqualTo(expectedPro));
 
             //Click the Checkout button
+            driver.FindElement(By.ClassName("btn-success")).Click();
+            //Type "Ind"
+            driver.FindElement(By.Id("country")).SendKeys("Ind");
+            //Wait until "India" is visible (10sec)
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//a[normalize-space()='India']")));
+            driver.FindElement(By.XPath("//a[normalize-space()='India']")).Click();
+
+            driver.FindElement(By.CssSelector("label[for='checkbox2']")).Click();
+            driver.FindElement(By.CssSelector("input[value='Purchase']")).Click();
+            String successText = driver.FindElement(By.ClassName("alert-success")).Text.Trim();
+            StringAssert.Contains("Success", successText);
+
 
         }
     }
