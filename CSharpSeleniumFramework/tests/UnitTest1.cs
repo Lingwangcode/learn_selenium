@@ -1,3 +1,4 @@
+using CSharpSeleniumFramework.pageObjects;
 using CSharpSeleniumFramework.utilities;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -20,10 +21,14 @@ namespace CSharpSeleniumFramework.tests
         {
             string[] expectedPro = { "iphone X", "Blackberry" };
 
-            driver.FindElement(By.Id("username")).SendKeys("rahulshettyacademy");
-            driver.FindElement(By.Id("password")).SendKeys("learning");
-            driver.FindElement(By.CssSelector(".text-info span:nth-child(1) input")).Click();
-            driver.FindElement(By.CssSelector("input[value='Sign In']")).Click();
+            LoginPage login = new LoginPage(GetDriver());
+
+            login.validLogin("rahulshettyacademy", "learning");
+
+            //login.GetUserName().SendKeys("rahulshettyacademy");
+            //login.GetPassword().SendKeys("learning");
+            //login.GetAgreeBox().Click();
+            //login.GetSignInButton().Click();
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             //PartialLinkText does not expect that the text is exactly the same as expected.

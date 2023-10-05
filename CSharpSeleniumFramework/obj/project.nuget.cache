@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "6nkh0kTEpcZy5kdmXzUVVJ4FHycxcTi+X7PabEWFrpF/akx2TK5e4eMweb2H8LX0ZE9rKTLyKMVWZoHpL3w55g==",
+  "dgSpecHash": "5jC4dN5vLx/YnFTntlrNL46RmYE6pz28FyANpNBMPXN637vioMuzUzkT5Jf1eEaWmWz2Vk0cPIy6PjLLxNDiTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\lings\\learn_selenium\\CSharpSeleniumFramework\\CSharpSeleniumFramework.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lings\\.nuget\\packages\\anglesharp\\1.0.4\\anglesharp.1.0.4.nupkg.sha512",
     "C:\\Users\\lings\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
+    "C:\\Users\\lings\\.nuget\\packages\\dotnetseleniumextras.pageobjects\\3.11.0\\dotnetseleniumextras.pageobjects.3.11.0.nupkg.sha512",
+    "C:\\Users\\lings\\.nuget\\packages\\dotnetseleniumextras.pageobjects.core\\4.3.0\\dotnetseleniumextras.pageobjects.core.4.3.0.nupkg.sha512",
     "C:\\Users\\lings\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\lings\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
     "C:\\Users\\lings\\.nuget\\packages\\microsoft.net.test.sdk\\17.5.0\\microsoft.net.test.sdk.17.5.0.nupkg.sha512",

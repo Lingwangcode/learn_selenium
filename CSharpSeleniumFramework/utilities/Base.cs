@@ -26,6 +26,8 @@ namespace CSharpSeleniumFramework.utilities
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
         }
 
+        public IWebDriver GetDriver() { return driver; }
+
         public void InitBrowser(string browserName)
         {
             switch (browserName)
