@@ -17,7 +17,8 @@ namespace CSharpSeleniumFramework.tests
 
 
         [Test]
-        public void EndToEnd()
+        [TestCase ("rahulshettyacademy", "learning")]
+        public void EndToEnd(String userName, String password)
         {
             string[] expectedPro = { "iphone X", "Blackberry" };
 
@@ -29,7 +30,7 @@ namespace CSharpSeleniumFramework.tests
             //login.GetSignInButton().Click();
 
             //ProductsPage productsPage = new ProductsPage(GetDriver());
-            ProductsPage productsPage = login.validLogin("rahulshettyacademy", "learning");
+            ProductsPage productsPage = login.validLogin(userName, password);
 
             productsPage.waitForProductPage();
 
