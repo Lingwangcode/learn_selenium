@@ -14,13 +14,13 @@ namespace CSharpSeleniumFramework.utilities
 {
     internal class Base
     {
-        public IWebDriver driver;
+        private IWebDriver driver;
         [SetUp]
         public void StartBrowser()
         {
             //Configuration
             String browserName = ConfigurationManager.AppSettings["browser"];
-            InitBrowser(browserName);
+            InitBrowser(browserName!);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Manage().Window.Maximize();
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
@@ -52,7 +52,7 @@ namespace CSharpSeleniumFramework.utilities
         [TearDown]
         public void TeardownBrowser()
         {
-            driver.Quit();
+            driver!.Quit();
         }
 
     }

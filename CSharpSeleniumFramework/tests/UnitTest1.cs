@@ -23,54 +23,49 @@ namespace CSharpSeleniumFramework.tests
 
             LoginPage login = new LoginPage(GetDriver());
 
-            login.validLogin("rahulshettyacademy", "learning");
-
             //login.GetUserName().SendKeys("rahulshettyacademy");
             //login.GetPassword().SendKeys("learning");
             //login.GetAgreeBox().Click();
             //login.GetSignInButton().Click();
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            //PartialLinkText does not expect that the text is exactly the same as expected.
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.PartialLinkText("Checkout")));
+            //ProductsPage productsPage = new ProductsPage(GetDriver());
+            ProductsPage productsPage = login.validLogin("rahulshettyacademy", "learning");
 
-            IList<IWebElement> productELements = driver.FindElements(By.TagName("app-card"));
-            foreach (IWebElement pro in productELements)
+            productsPage.waitForProductPage();
+
+            //IList<IWebElement> productELements = GetDriver().FindElements(By.TagName("app-card"));
+            IList<IWebElement> products = productsPage.GetCards();
+            foreach (IWebElement pro in products)
             {
-                string proText = pro.FindElement(By.CssSelector(".card-title a")).Text;
+                string proText = pro.FindElement(productsPage.GetCardTitle()).Text;
                 foreach (string expectedProText in expectedPro)
                 {
                     if (expectedProText.Equals(proText))
                     {
-                        pro.FindElement(By.TagName("button")).Click();
+                        pro.FindElement(productsPage.GetAddButton()).Click();
                     }
                 }
             }
 
-            driver.FindElement(By.PartialLinkText("Checkout")).Click();
+            OrderComfirm orderComfirm = productsPage.Checkout();
 
             //check if the items are expected in the cart
-            IList<IWebElement> productElementListCheckOut = driver.FindElements(By.CssSelector("h4 a"));
-
+            IList<IWebElement> cardsCheckout = orderComfirm.GetCards();
             string[] actualProducts = new string[2];
-            for (int i = 0; i < productElementListCheckOut.Count; i++)
-            {
 
-                actualProducts[i] = productElementListCheckOut[i].Text;
+            for (int i = 0; i < cardsCheckout.Count; i++)
+            {
+                actualProducts[i] = cardsCheckout[i].Text;
             }
             Assert.That(actualProducts, Is.EqualTo(expectedPro));
 
-            //Click the Checkout button
-            driver.FindElement(By.ClassName("btn-success")).Click();
-            //Type "Ind"
-            driver.FindElement(By.Id("country")).SendKeys("Ind");
-            //Wait until "India" is visible (10sec)
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//a[normalize-space()='India']")));
-            driver.FindElement(By.XPath("//a[normalize-space()='India']")).Click();
+            //Click the Checkout button, landing on the checkout page
+            CheckoutPage checkoutPage = orderComfirm.checkout();
 
-            driver.FindElement(By.CssSelector("label[for='checkbox2']")).Click();
-            driver.FindElement(By.CssSelector("input[value='Purchase']")).Click();
-            string successText = driver.FindElement(By.ClassName("alert-success")).Text.Trim();
+           
+            checkoutPage.purchase();
+
+            string successText = checkoutPage.GetSeccessLabel();
             StringAssert.Contains("Success", successText);
 
 

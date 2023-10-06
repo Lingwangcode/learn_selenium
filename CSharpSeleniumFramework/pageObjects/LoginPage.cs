@@ -30,12 +30,14 @@ namespace CSharpSeleniumFramework.pageObjects
         [FindsBy(How = How.CssSelector, Using = "input[value='Sign In']")]
         private IWebElement signInButton;
 
-        public void validLogin(String user, String pass)
+        public ProductsPage validLogin(String user, String pass)
         {
             username.SendKeys(user);
             password.SendKeys(pass);
             agreeBox.Click();
             signInButton.Click();
+
+            return new ProductsPage(driver);
         }
 
         //public IWebElement GetUserName()
